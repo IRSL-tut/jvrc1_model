@@ -29,6 +29,38 @@ class JVRC1(ru.ImportedRobotModel):
                                                  ('R_ANKLE_P', 'ankle-p'),
                                                  )
                                  )
+        len_a = 0.08
+        len_b = 0.08
+        theta = 45/180.0*PI
+        toe = coordinates(fv(0, 0, self.off_))
+        toe.translate(fv(len_a, 0, 0))
+        toe.rotate(-theta, coordinates.Y)
+        toe.translate(fv(0.5*len_b, 0, 0))
+        self.registerEndEffector('llegt', ## end-effector
+                                 'L_ANKLE_P', ## tip-link
+                                 tip_link_to_eef = toe,
+                                 joint_tuples = (('L_HIP_P', 'hip-p'),
+                                                 ('L_HIP_R', 'hip-r'),
+                                                 ('L_HIP_Y', 'hip-y'),
+                                                 ('L_KNEE', 'knee-p'),
+                                                 ('L_ANKLE_R', 'ankle-r'),
+                                                 ('L_ANKLE_P', 'ankle-p'),
+                                                 )
+                                 )
+        self.registerEndEffector('rlegt', ## end-effector
+                                 'R_ANKLE_P', ## tip-link
+                                 tip_link_to_eef = toe.copy(),
+                                 joint_tuples = (('R_HIP_P', 'hip-p'),
+                                                 ('R_HIP_R', 'hip-r'),
+                                                 ('R_HIP_Y', 'hip-y'),
+                                                 ('R_KNEE', 'knee-p'),
+                                                 ('R_ANKLE_R', 'ankle-r'),
+                                                 ('R_ANKLE_P', 'ankle-p'),
+                                                 )
+                                 )
+        self.foot2toe = coordinates(fv(len_a + 0.5*len_b*math.cos(theta), 0, 0))
+        ## llegt.inverseKinematics( lleg.endEffector.transform(robot.foot2toe) ) ###
+        self._makefoot(len_a, len_b, len_a, theta, width=0.1)##
         ##
         self.setFrame('rf_point0', 'R_ANKLE_P', coordinates(fv( 0.157,  0.05, self.off_)))
         self.setFrame('rf_point1', 'R_ANKLE_P', coordinates(fv( 0.157, -0.05, self.off_)))
@@ -40,6 +72,35 @@ class JVRC1(ru.ImportedRobotModel):
         self.setFrame('lf_point2', 'L_ANKLE_P', coordinates(fv(-0.095,  0.05, self.off_)))
         self.setFrame('lf_point3', 'L_ANKLE_P', coordinates(fv(-0.095, -0.05, self.off_)))
 
+    def _makefoot(self, length_a, length_b, length_c, theta, width, ti=0.02):
+        sth = math.sin(theta)
+        cth = math.cos(theta)
+        cros = [[-length_c, 0],
+                [length_a, 0],
+                [length_a + length_b*cth,          length_b*sth],
+                [length_a + length_b*cth - ti*sth, length_b*sth + ti*cth],
+                [length_a - ti*sth/cth, ti],
+                [-length_c, ti],
+                [-length_c, 0]]
+        obj = mkshapes.makeExtrusion(cros, [[0, -0.5*width, 0], [0, 0.5*width, 0]], rawShape=True, color=[1.0*0.5, 0.65*0.5, 0])
+        trs = cutil.SgPosTransform()
+        trs.T = coordinates(fv(0, 0, self.off_)).cnoidPosition
+        trs.addChild(obj)
+        ##
+        jtr = self.robot.joint('R_ANKLE_P')
+        jtr.clearShapeNodes()
+        jtr.addShapeNode(trs)
+        jtl = self.robot.joint('L_ANKLE_P')
+        jtl.clearShapeNodes()
+        jtl.addShapeNode(trs)
+
+    @property
+    def llegt(self):
+        return self.getLimb('llegt')
+
+    @property
+    def rlegt(self):
+        return self.getLimb('rlegt')
 
 ### settings of model_file
 JVRC1.model_file = f'{os.path.dirname(__file__)}/JVRC-1/main.wrl'
