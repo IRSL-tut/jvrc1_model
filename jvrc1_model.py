@@ -31,6 +31,7 @@ class JVRC1(ru.ImportedRobotModel):
                                  )
         len_a = 0.08
         len_b = 0.08
+        width = 0.1
         theta = 45/180.0*PI
         toe = coordinates(fv(0, 0, self.off_))
         toe.translate(fv(len_a, 0, 0))
@@ -60,17 +61,39 @@ class JVRC1(ru.ImportedRobotModel):
                                  )
         self.foot2toe = coordinates(fv(len_a + 0.5*len_b*math.cos(theta), 0, 0))
         ## llegt.inverseKinematics( lleg.endEffector.transform(robot.foot2toe) ) ###
-        self._makefoot(len_a, len_b, len_a, theta, width=0.1)##
-        ##
-        self.setFrame('rf_point0', 'R_ANKLE_P', coordinates(fv( 0.157,  0.05, self.off_)))
-        self.setFrame('rf_point1', 'R_ANKLE_P', coordinates(fv( 0.157, -0.05, self.off_)))
-        self.setFrame('rf_point2', 'R_ANKLE_P', coordinates(fv(-0.095,  0.05, self.off_)))
-        self.setFrame('rf_point3', 'R_ANKLE_P', coordinates(fv(-0.095, -0.05, self.off_)))
-        ##
-        self.setFrame('lf_point0', 'L_ANKLE_P', coordinates(fv( 0.157,  0.05, self.off_)))
-        self.setFrame('lf_point1', 'L_ANKLE_P', coordinates(fv( 0.157, -0.05, self.off_)))
-        self.setFrame('lf_point2', 'L_ANKLE_P', coordinates(fv(-0.095,  0.05, self.off_)))
-        self.setFrame('lf_point3', 'L_ANKLE_P', coordinates(fv(-0.095, -0.05, self.off_)))
+        self._makefoot(len_a, len_b, len_a, theta, width=width)##
+        #### old points
+        #self.setFrame('rf_point0', 'R_ANKLE_P', coordinates(fv( 0.157,  0.05, self.off_)))
+        #self.setFrame('rf_point1', 'R_ANKLE_P', coordinates(fv( 0.157, -0.05, self.off_)))
+        #self.setFrame('rf_point2', 'R_ANKLE_P', coordinates(fv(-0.095,  0.05, self.off_)))
+        #self.setFrame('rf_point3', 'R_ANKLE_P', coordinates(fv(-0.095, -0.05, self.off_)))
+        #self.setFrame('lf_point0', 'L_ANKLE_P', coordinates(fv( 0.157,  0.05, self.off_)))
+        #self.setFrame('lf_point1', 'L_ANKLE_P', coordinates(fv( 0.157, -0.05, self.off_)))
+        #self.setFrame('lf_point2', 'L_ANKLE_P', coordinates(fv(-0.095,  0.05, self.off_)))
+        #self.setFrame('lf_point3', 'L_ANKLE_P', coordinates(fv(-0.095, -0.05, self.off_)))
+        #### new points
+        self.setFrame('rf_point0', 'R_ANKLE_P', coordinates(fv( len_a,  0.5*width, self.off_)))
+        self.setFrame('rf_point1', 'R_ANKLE_P', coordinates(fv( len_a, -0.5*width, self.off_)))
+        self.setFrame('rf_point2', 'R_ANKLE_P', coordinates(fv(-len_a,  0.5*width, self.off_)))
+        self.setFrame('rf_point3', 'R_ANKLE_P', coordinates(fv(-len_a, -0.5*width, self.off_)))
+        #
+        self.setFrame('lf_point0', 'L_ANKLE_P', coordinates(fv( len_a,  0.5*width, self.off_)))
+        self.setFrame('lf_point1', 'L_ANKLE_P', coordinates(fv( len_a, -0.5*width, self.off_)))
+        self.setFrame('lf_point2', 'L_ANKLE_P', coordinates(fv(-len_a,  0.5*width, self.off_)))
+        self.setFrame('lf_point3', 'L_ANKLE_P', coordinates(fv(-len_a, -0.5*width, self.off_)))
+        #### new points
+        rr=coordinates(fv( len_a,  0.5*width, self.off_), fv(0, -theta, 0))
+        rl=coordinates(fv( len_a, -0.5*width, self.off_), fv(0, -theta, 0))
+        self.setFrame('rtoe_point0', 'R_ANKLE_P', rr)
+        self.setFrame('rtoe_point1', 'R_ANKLE_P', rl)
+        self.setFrame('rtoe_point2', 'R_ANKLE_P', rr.translate(fv(len_b, 0, 0)))
+        self.setFrame('rtoe_point3', 'R_ANKLE_P', rl.translate(fv(len_b, 0, 0)))
+        lr=coordinates(fv( len_a,  0.5*width, self.off_), fv(0, -theta, 0))
+        ll=coordinates(fv( len_a, -0.5*width, self.off_), fv(0, -theta, 0))
+        self.setFrame('ltoe_point0', 'L_ANKLE_P', lr)
+        self.setFrame('ltoe_point1', 'L_ANKLE_P', ll)
+        self.setFrame('ltoe_point2', 'L_ANKLE_P', lr.translate(fv(len_b, 0, 0)))
+        self.setFrame('ltoe_point3', 'L_ANKLE_P', ll.translate(fv(len_b, 0, 0)))
 
     def _makefoot(self, length_a, length_b, length_c, theta, width, ti=0.02):
         sth = math.sin(theta)
