@@ -1,7 +1,7 @@
 import os
 exec(open('/choreonoid_ws/install/share/irsl_choreonoid/sample/irsl_import.py').read())
 
-class JVRC1(ru.ImportedRobotModel):
+class JVRC1Toe(ru.ImportedRobotModel):
     def __init__(self, robot=None, item=True, world=False, **kwargs):
         super().__init__(robot=robot, item=item, world=world, **kwargs)
 
