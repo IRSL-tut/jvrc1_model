@@ -39,7 +39,17 @@ class JVRC1(ru.ImportedRobotModel):
         self.setFrame('lf_point1', 'L_ANKLE_P', coordinates(fv( 0.157, -0.05, self.off_)))
         self.setFrame('lf_point2', 'L_ANKLE_P', coordinates(fv(-0.095,  0.05, self.off_)))
         self.setFrame('lf_point3', 'L_ANKLE_P', coordinates(fv(-0.095, -0.05, self.off_)))
-
+        #
+        self.registerNamedPose('sim_default', ## CoM = 0, 0, xxx
+                               [ -0.38, -0.01, 0., 0.72, -0.01, -0.33,
+                                 -0.38,  0.02, 0., 0.72, -0.02, -0.33,
+                                 0.,  0.13,  0.,    0., 0.,   0.,
+                                 -0.052, -0.17,  0.,   -0.52, 0.,   0.,    0.,    0.,   0.,    0.,    0., 0.,   0.,
+                                 -0.052,  0.17,  0.,   -0.52, 0.,   0.,    0.,    0.,   0.,    0.,    0., 0.,   0., ],
+                               ru.make_coordinates( {'pos': [0.0, 0.0, 0.825 ]} )
+                               )
+    def setSimDefaultPose(self):
+        self.setNamedPose('sim_default')
 
 ### settings of model_file
 JVRC1.model_file = f'{os.path.dirname(__file__)}/JVRC-1/main.wrl'
