@@ -146,6 +146,21 @@ class JVRC1Toe(ru.ImportedRobotModel):
         jtl = self.robot.joint('L_ANKLE_P')
         jtl.clearShapeNodes()
         jtl.addShapeNode(trs)
+
+    def footTarget(self, coords, toe=0.0):
+        """
+        coords: target of foot
+        toe == 0.0(Foot), toe == 1.0 (Toe)
+        """
+        if toe <= 0.0:
+            return coords
+        #toe
+        len_a = 0.08
+        theta = 45/180.0*PI * toe
+        dif = coordinates( fv(  len_a*(1-math.cos(theta)), 0, len_a*math.sin(theta) ) )
+        dif.rotate(theta, coordinates.Y)
+        return coords.get_transformed(dif)
+
     @property
     def ltoe(self):
         return self._ltoe_
