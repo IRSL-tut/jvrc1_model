@@ -1,0 +1,772 @@
+format: ChoreonoidBody
+format_version: 2.0
+angle_unit: degree
+name: "BodyBuilder"
+root_link: "PELVIS"
+links:
+  -
+    name: "PELVIS"
+    translation: [ 0, 0, 0.854 ]
+    joint_name: "PELVIS"
+    joint_type: free
+    mass: 41.4
+    center_of_mass: [ 0.046062, 4.69297e-18, 0.250799 ]
+    inertia: [
+      4.12258, 1.82146e-17, 0.0449145,
+      1.82146e-17, 2.75816, 4.85723e-17,
+      0.0449145, 4.85723e-17, 1.83823 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0, -0, -0.854 ]
+        elements:
+          -
+            type: Transform
+            translation: [ 0.046, 0, 1.204 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.28, 0 ]
+                    emissive: [ 0, 0.12, 0 ]
+                geometry:
+                  type: Box
+                  size: [ 0.18, 0.36, 0.54 ]
+          -
+            type: Transform
+            translation: [ 0, -0.121, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            translation: [ 0, 0.071, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 180 ]
+            translation: [ 0, -0.048, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.7, 0 ]
+                    emissive: [ 0, 0.3, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.012
+                  height: 0.096
+          -
+            type: Transform
+            translation: [ 0, 0.048, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.7, 0 ]
+                    emissive: [ 0, 0.3, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.012
+                  height: 0.096
+  -
+    name: "R_HIP_P_S"
+    parent: "PELVIS"
+    translation: [ 0, -0.096, 0 ]
+    joint_name: "R_HIP_P"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 0
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00196, 0, 0,
+      0, 0.00196, 0,
+      0, 0, 0.00196 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0, 0.096, -0.854 ]
+        elements:
+          -
+            type: Transform
+            translation: [ 0, -0.071, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ -0.025, -0.096, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+  -
+    name: "R_HIP_R_S"
+    parent: "R_HIP_P_S"
+    rotation: [ 0, 0, -1, 90 ]
+    joint_name: "R_HIP_R"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 1
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00196, 0, 0,
+      0, 0.00196, 0,
+      0, 0, 0.00196 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0, -0, 1, 90 ]
+        translation: [ -0.096, 2.13162820728e-17, -0.854 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ 0.025, -0.096, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            translation: [ 0, -0.096, 0.829 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+  -
+    name: "R_HIP_Y_S"
+    parent: "R_HIP_R_S"
+    rotation: [ 0.57735, 0.57735, 0.57735, 120 ]
+    joint_name: "R_HIP_Y"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 2
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 3
+    center_of_mass: [ 0.01, -9.76996e-17, 0.22 ]
+    inertia: [
+      0.031925, 0, 0,
+      0, 0.034525, 1.14908e-17,
+      0, 1.14908e-17, 0.00865 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -1, 0, 0, 90 ]
+        translation: [ -0, -0.854, -0.096 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            translation: [ 0, -0.096, 0.879 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            translation: [ -0.02, -0.121, 0.465 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ -0.998680920934, 0, 0.051346062773, 90 ]
+            translation: [ -0.01, -0.096, 0.6595 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.7, 0 ]
+                    emissive: [ 0, 0.3, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.012
+                  height: 0.389514
+  -
+    name: "R_KNEE_S"
+    parent: "R_HIP_Y_S"
+    translation: [ -0.02, -0.389, -9.71445e-17 ]
+    rotation: [ -1, 0, -2.46519e-32, 90 ]
+    joint_name: "R_KNEE"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 3
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 3
+    center_of_mass: [ 0.04, 0, -0.16 ]
+    inertia: [
+      0.031925, 0, 0,
+      0, 0.034525, 0,
+      0, 0, 0.00865 ]
+    elements:
+      -
+        type: Transform
+        translation: [ 0.02, 0.096, -0.465 ]
+        elements:
+          -
+            type: Transform
+            translation: [ -0.02, -0.071, 0.465 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ -0.005, -0.096, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ -0.993781469284, 0, -0.111348063785, 90 ]
+            translation: [ -3.46944695195e-18, -0.096, 0.2865 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.7, 0 ]
+                    emissive: [ 0, 0.3, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.012
+                  height: 0.359234
+  -
+    name: "R_ANKLE_R_S"
+    parent: "R_KNEE_S"
+    translation: [ 0.04, -1.38778e-17, -0.357 ]
+    rotation: [ -2.73691e-48, 2.73691e-48, -1, 90 ]
+    joint_name: "R_ANKLE_R"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 4
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00064, 0, 0,
+      0, 0.00064, 0,
+      0, 0, 0.00064 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0, -0, 1, 90 ]
+        translation: [ -0.096, -0.02, -0.108 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ 0.045, -0.096, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            translation: [ 0.02, -0.121, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+  -
+    name: "R_ANKLE_P_S"
+    parent: "R_ANKLE_R_S"
+    rotation: [ 1.2326e-32, 1.2326e-32, 1, 90 ]
+    joint_name: "R_ANKLE_P"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 5
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1.5
+    center_of_mass: [ 0.03, 0, -0.07 ]
+    inertia: [
+      0.00141667, 0, 0,
+      0, 0.00561667, 0,
+      0, 0, 0.00621667 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.02, 0.096, -0.108 ]
+        elements:
+          -
+            type: Transform
+            translation: [ 0.02, -0.071, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            translation: [ 0.045, -0.096, 0.01 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.28, 0 ]
+                    emissive: [ 0, 0.12, 0 ]
+                geometry:
+                  type: Box
+                  size: [ 0.24, 0.1, 0.02 ]
+  -
+    name: "L_HIP_P_S"
+    parent: "PELVIS"
+    translation: [ 0, 0.096, 0 ]
+    joint_name: "L_HIP_P"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 6
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00196, 0, 0,
+      0, 0.00196, 0,
+      0, 0, 0.00196 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0, -0.096, -0.854 ]
+        elements:
+          -
+            type: Transform
+            translation: [ 0, 0.121, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ -0.025, 0.096, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+  -
+    name: "L_HIP_R_S"
+    parent: "L_HIP_P_S"
+    rotation: [ 0, 0, -1, 90 ]
+    joint_name: "L_HIP_R"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 7
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00196, 0, 0,
+      0, 0.00196, 0,
+      0, 0, 0.00196 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0, -0, 1, 90 ]
+        translation: [ 0.096, -2.13162820728e-17, -0.854 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ 0.025, 0.096, 0.854 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            translation: [ 0, 0.096, 0.829 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+  -
+    name: "L_HIP_Y_S"
+    parent: "L_HIP_R_S"
+    rotation: [ 0.57735, 0.57735, 0.57735, 120 ]
+    joint_name: "L_HIP_Y"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 8
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 3
+    center_of_mass: [ 0.01, -9.76996e-17, 0.22 ]
+    inertia: [
+      0.031925, 0, 0,
+      0, 0.034525, 1.14908e-17,
+      0, 1.14908e-17, 0.00865 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -1, 0, 0, 90 ]
+        translation: [ -0, -0.854, 0.096 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 1, 0, 0, 90 ]
+            translation: [ 0, 0.096, 0.879 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            translation: [ -0.02, 0.071, 0.465 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ -0.998680920934, 0, 0.051346062773, 90 ]
+            translation: [ -0.01, 0.096, 0.6595 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.7, 0 ]
+                    emissive: [ 0, 0.3, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.012
+                  height: 0.389514
+  -
+    name: "L_KNEE_S"
+    parent: "L_HIP_Y_S"
+    translation: [ -0.02, -0.389, -9.71445e-17 ]
+    rotation: [ -1, 0, -2.46519e-32, 90 ]
+    joint_name: "L_KNEE"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 9
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 3
+    center_of_mass: [ 0.04, 0, -0.16 ]
+    inertia: [
+      0.031925, 0, 0,
+      0, 0.034525, 0,
+      0, 0, 0.00865 ]
+    elements:
+      -
+        type: Transform
+        translation: [ 0.02, -0.096, -0.465 ]
+        elements:
+          -
+            type: Transform
+            translation: [ -0.02, 0.121, 0.465 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ -0.005, 0.096, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            rotation: [ -0.993781469284, 0, -0.111348063785, 90 ]
+            translation: [ -3.46944695195e-18, 0.096, 0.2865 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.7, 0 ]
+                    emissive: [ 0, 0.3, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.012
+                  height: 0.359234
+  -
+    name: "L_ANKLE_R_S"
+    parent: "L_KNEE_S"
+    translation: [ 0.04, -1.38778e-17, -0.357 ]
+    rotation: [ -2.73691e-48, 2.73691e-48, -1, 90 ]
+    joint_name: "L_ANKLE_R"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 10
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1
+    center_of_mass: [ 0, 0, 0 ]
+    inertia: [
+      0.00064, 0, 0,
+      0, 0.00064, 0,
+      0, 0, 0.00064 ]
+    elements:
+      -
+        type: Transform
+        rotation: [ -0, -0, 1, 90 ]
+        translation: [ 0.096, -0.02, -0.108 ]
+        elements:
+          -
+            type: Transform
+            rotation: [ 0, 0, -1, 90 ]
+            translation: [ 0.045, 0.096, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            translation: [ 0.02, 0.071, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.35, 0, 0 ]
+                    emissive: [ 0.15, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+  -
+    name: "L_ANKLE_P_S"
+    parent: "L_ANKLE_R_S"
+    rotation: [ 1.2326e-32, 1.2326e-32, 1, 90 ]
+    joint_name: "L_ANKLE_P"
+    joint_type: revolute
+    joint_axis: [ 0, 1, 0 ]
+    joint_id: 11
+    joint_range: [ -183.346, 183.346 ]
+    max_joint_velocity: 1031.32
+    max_joint_effort: 400
+    mass: 1.5
+    center_of_mass: [ 0.03, 0, -0.07 ]
+    inertia: [
+      0.00141667, 0, 0,
+      0, 0.00561667, 0,
+      0, 0, 0.00621667 ]
+    elements:
+      -
+        type: Transform
+        translation: [ -0.02, -0.096, -0.108 ]
+        elements:
+          -
+            type: Transform
+            translation: [ 0.02, 0.121, 0.108 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0.7, 0, 0 ]
+                    emissive: [ 0.3, 0, 0 ]
+                geometry:
+                  type: Cylinder
+                  radius: 0.02
+                  height: 0.05
+          -
+            type: Transform
+            translation: [ 0.045, 0.096, 0.01 ]
+            elements:
+              -
+                type: Shape
+                appearance:
+                  material:
+                    diffuse: [ 0, 0.28, 0 ]
+                    emissive: [ 0, 0.12, 0 ]
+                geometry:
+                  type: Box
+                  size: [ 0.24, 0.1, 0.02 ]
