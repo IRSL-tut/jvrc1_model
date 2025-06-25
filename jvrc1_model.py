@@ -51,6 +51,55 @@ class JVRC1(ru.ImportedRobotModel):
     def setSimDefaultPose(self):
         self.setNamedPose('sim_default')
 
+    def getJointSettings(self, Pratio=1.0, Dratio=1.0):
+        settings = {
+            'R_HIP_P':     {'P': 5000 *Pratio, 'D': 30*Dratio },
+            'R_HIP_R':     {'P': 5000 *Pratio, 'D': 30*Dratio },
+            'R_HIP_Y':     {'P': 5000 *Pratio, 'D': 30*Dratio },
+            'R_KNEE':      {'P': 6000 *Pratio, 'D': 50*Dratio },
+            'R_ANKLE_R':   {'P': 3000 *Pratio, 'D': 20*Dratio },
+            'R_ANKLE_P':   {'P': 3000 *Pratio, 'D': 20*Dratio },
+            'L_HIP_P':     {'P': 5000 *Pratio, 'D': 30*Dratio },
+            'L_HIP_R':     {'P': 5000 *Pratio, 'D': 30*Dratio },
+            'L_HIP_Y':     {'P': 5000 *Pratio, 'D': 30*Dratio },
+            'L_KNEE':      {'P': 6000 *Pratio, 'D': 50*Dratio },
+            'L_ANKLE_R':   {'P': 3000 *Pratio, 'D': 20*Dratio },
+            'L_ANKLE_P':   {'P': 3000 *Pratio, 'D': 20*Dratio },
+            'WAIST_Y':     {'P': 5000 *Pratio, 'D': 32*Dratio },
+            'WAIST_P':     {'P': 5000 *Pratio, 'D': 32*Dratio },
+            'WAIST_R':     {'P': 5000 *Pratio, 'D': 32*Dratio },
+            'NECK_Y':      {'P': 1000 *Pratio, 'D': 21*Dratio },
+            'NECK_R':      {'P': 1000 *Pratio, 'D': 21*Dratio },
+            'NECK_P':      {'P': 1000 *Pratio, 'D': 21*Dratio },
+            'R_SHOULDER_P':{'P': 1100 *Pratio, 'D': 70*Dratio },
+            'R_SHOULDER_R':{'P': 1100 *Pratio, 'D': 70*Dratio },
+            'R_SHOULDER_Y':{'P': 1100 *Pratio, 'D': 70*Dratio },
+            'R_ELBOW_P':   {'P': 1200 *Pratio, 'D': 80*Dratio },
+            'R_ELBOW_Y':   {'P': 1200 *Pratio, 'D': 80*Dratio },
+            'R_WRIST_R':   {'P': 500  *Pratio, 'D': 24*Dratio },
+            'R_WRIST_Y':   {'P': 500  *Pratio, 'D': 24*Dratio },
+            'R_UTHUMB':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'R_LTHUMB':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'R_UINDEX':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'R_LINDEX':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'R_ULITTLE':   {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'R_LLITTLE':   {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'L_SHOULDER_P':{'P': 1100 *Pratio, 'D': 70*Dratio },
+            'L_SHOULDER_R':{'P': 1100 *Pratio, 'D': 70*Dratio },
+            'L_SHOULDER_Y':{'P': 1100 *Pratio, 'D': 70*Dratio },
+            'L_ELBOW_P':   {'P': 1200 *Pratio, 'D': 80*Dratio },
+            'L_ELBOW_Y':   {'P': 1200 *Pratio, 'D': 80*Dratio },
+            'L_WRIST_R':   {'P': 500  *Pratio, 'D': 24*Dratio },
+            'L_WRIST_Y':   {'P': 500  *Pratio, 'D': 24*Dratio },
+            'L_UTHUMB':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'L_LTHUMB':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'L_UINDEX':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'L_LINDEX':    {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'L_ULITTLE':   {'P': 30   *Pratio, 'D': 3 *Dratio },
+            'L_LLITTLE':   {'P': 30   *Pratio, 'D': 3 *Dratio },
+        }
+        return settings
+
 ### settings of model_file
 JVRC1.model_file = f'{os.path.dirname(__file__)}/JVRC-1/main.wrl'
 
