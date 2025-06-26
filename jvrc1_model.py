@@ -48,9 +48,19 @@ class JVRC1(ru.ImportedRobotModel):
                                  -0.052,  0.17,  0.,   -0.52, 0.,   0.,    0.,    0.,   0.,    0.,    0., 0.,   0., ],
                                ru.make_coordinates( {'pos': [0.0, 0.0, 0.825 ]} )
                                )
+        self.registerNamedPose('sim_half_sit',
+                               [ -7.89611370e-01, 0,  0,  1.45842498e+00, 0, -0.66881361,
+                                 -7.89611370e-01, 0,  0,  1.45842498e+00, 0, -0.66881361,
+                                 0.,  0.13,  0.,    0., 0.,   0.,
+                                 -0.052, -0.17,  0.,   -0.52, 0.,   0.,    0.,    0.,   0.,    0.,    0., 0.,   0.,
+                                 -0.052,  0.17,  0.,   -0.52, 0.,   0.,    0.,    0.,   0.,    0.,    0., 0.,   0., ],
+                               ru.make_coordinates( {'pos': [-0.072161, 0.0, 0.702 ]} )
+                               )
+
     def setSimDefaultPose(self):
         self.setNamedPose('sim_default')
-
+    def setHalfSitPose(self):
+        self.setNamedPose('sim_half_sit')
     def getJointSettings(self, Pratio=1.0, Dratio=1.0):
         settings = {
             'R_HIP_P':     {'P': 5000 *Pratio, 'D': 30*Dratio },
